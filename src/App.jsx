@@ -155,11 +155,6 @@ export default function App() {
           <AdminPanel />
         ) : (
           <div className="body-layout">
-            <Sidebar
-              curGroup={curGroup}
-              curTrial={curTrial}
-              onJumpTrial={jumpTrial}
-            />
 
             {isVariantB && phase === 'q' && passage ? (
               <SplitView
