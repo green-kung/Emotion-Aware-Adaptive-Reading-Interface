@@ -1,30 +1,12 @@
 import { SESSIONS } from '../data/sessions';
 import { PASSAGES } from '../data/passages';
 
-export default function Sidebar({ curGroup, curTrial, onSelectGroup, onJumpTrial }) {
+export default function Sidebar({ curGroup, curTrial, onJumpTrial }) {
   const seq = curGroup ? SESSIONS[curGroup] : [];
 
   return (
     <div className="sidebar">
       <div className="sb-scroll">
-        <div className="sec">
-          <div className="sec-lbl">Participant</div>
-          <div className="sel-list">
-            {Object.keys(SESSIONS).map(g => (
-              <div
-                key={g}
-                className={`sel-item${curGroup === g ? ' active' : ''}`}
-                onClick={() => onSelectGroup(g)}
-              >
-                <div className="sel-icon">{g}</div>
-                <div>
-                  <div className="sel-name">{g}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {curGroup && (
           <div className="sec">
             <div className="sec-lbl">Sequence</div>

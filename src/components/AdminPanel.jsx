@@ -1,69 +1,77 @@
+import { useState } from 'react';
 import { SESSIONS } from '../data/sessions';
-import { PASSAGES } from '../data/passages';
 
+export default function AdminPanel() {
+  const [v, setV] = useState('A');
+  const [g, setG] = useState('G1');
+  const [copied, setCopied] = useState(false);
 
-export default function AdminPanel({ curGroup, onSelectGroup, responseLog, onExport }) {
-  const seq = curGroup ? SESSIONS[curGroup] : [];
+  const url = `${window.location.origin}/?v=${v.toLowerCase()}&g=${g}`;
+
+  function handleCopy() {
+    navigator.clipboard.writeText(url).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  }
 
   return (
     <div className="admin-panel">
       <div className="admin-head">
-        <div className="admin-title">Admin Controls</div>
+        <div className="admin-title">Session Link Generator</div>
       </div>
-
-      <div className="admin-groups">
-        {Object.keys(SESSIONS).map(g => (
-          <button
-            key={g}
-            type="button"
-            className={curGroup === g ? 'active' : ''}
-            onClick={() => onSelectGroup(g)}
-          >
-            {g}
-          </button>
-        ))}
-      </div>
-
-      {curGroup && (
-        <div className="admin-preview" style={{ visibility: 'hidden' }}>
-          <h4>Selected Group: {curGroup}</h4>
-          <div className="admin-seq">
-            {seq.map(tid => {
-              const p = PASSAGES[tid];
-              return (
-                <div key={tid} className="admin-seq-row">
-                  <span>{tid}</span> — {p.title}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
 
       <div className="admin-preview" style={{ marginTop: 16 }}>
-        <div className="admin-head">
-          <h4 style={{ margin: 0 }}>Response Log</h4>
-          <button className="tb-btn" title="Export responses" onClick={onExport}>
-            <svg viewBox="0 0 16 16">
-              <path d="M8 2v8M4 7l4 4 4-4M2 13h12" />
-            </svg>
+        <h4 style={{ margin: '0 0 12px' }}>Variant</h4>
+        <div className="admin-groups">
+          {['A', 'B'].map(opt => (
+            <button
+              key={opt}
+              type="button"
+              className={v === opt ? 'active' : ''}
+              onClick={() => setV(opt)}
+            >
+              {opt}
+            </button>
+          ))}
+        </div>
+
+        <h4 style={{ margin: '20px 0 12px' }}>Group</h4>
+        <div className="admin-groups">
+          {Object.keys(SESSIONS).map(grp => (
+            <button
+              key={grp}
+              type="button"
+              className={g === grp ? 'active' : ''}
+              onClick={() => setG(grp)}
+            >
+              {grp}
+            </button>
+          ))}
+        </div>
+
+        <h4 style={{ margin: '20px 0 8px' }}>Participant Link</h4>
+        <div className="admin-head" style={{ gap: 8 }}>
+          <code style={{
+            flex: 1,
+            background: 'var(--c-bg)',
+            border: 'var(--bw) solid var(--c-border)',
+            borderRadius: 4,
+            padding: '6px 10px',
+            fontFamily: 'var(--font-mono)',
+            fontSize: 'var(--fs-xs)',
+            wordBreak: 'break-all',
+          }}>
+            {url}
+          </code>
+          <button className="tb-btn" onClick={handleCopy} title="Copy link" style={{ flexShrink: 0 }}>
+            {copied ? (
+              <svg viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" /></svg>
+            ) : (
+              <svg viewBox="0 0 16 16"><rect x="4" y="4" width="9" height="9" rx="1" /><path d="M3 3h7v1H3zM3 3v7h1V3z" /></svg>
+            )}
           </button>
         </div>
-        <ul className="log-list">
-          {responseLog.length === 0 ? (
-            <li style={{ color: 'var(--c-ui3)', fontFamily: 'var(--font-ui)', fontSize: 'var(--fs-xs)' }}>
-              No responses yet.
-            </li>
-          ) : (
-            responseLog.map((r, i) => (
-              <li key={i} className="log-row">
-                {r.group}&nbsp;&nbsp;{r.passage}&nbsp;&nbsp;{r.question}&nbsp;&nbsp;→ {r.response}&nbsp;&nbsp;
-                {r.correct ? '✓' : '✗'}
-                {r.elapsed != null ? `  ${r.elapsed}s` : ''}
-              </li>
-            ))
-          )}
-        </ul>
       </div>
     </div>
   );

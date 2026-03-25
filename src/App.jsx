@@ -2,11 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import { PASSAGES } from './data/passages';
 import { SESSIONS, SHEET_WEBAPP_URL } from './data/sessions';
-
-const supabase = createClient(
-  'https://feysaqreyldhstkontbf.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZleXNhcXJleWxkaHN0a29udGJmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ0Mjk5MDksImV4cCI6MjA5MDAwNTkwOX0.M9ZCMpttTQMMxvvUNtXmXA7jwGwi-8fcLOXpuJZSdQE'
-);
 import { VariantContext } from './context/VariantContext';
 import Toolbar from './components/Toolbar';
 import Sidebar from './components/Sidebar';
@@ -15,8 +10,17 @@ import ReadingView from './components/ReadingView';
 import QuestionView from './components/QuestionView';
 import SplitView from './components/SplitView';
 
+const supabase = createClient(
+  'https://feysaqreyldhstkontbf.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZleXNhcXJleWxkaHN0a29udGJmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ0Mjk5MDksImV4cCI6MjA5MDAwNTkwOX0.M9ZCMpttTQMMxvvUNtXmXA7jwGwi-8fcLOXpuJZSdQE'
+);
+
 const TOTAL_TRIALS = 6;
-const variant = new URLSearchParams(window.location.search).get('v')?.toUpperCase() || 'A';
+const params = new URLSearchParams(window.location.search);
+const variant = params.get('v')?.toUpperCase() || 'A';
+const groupParam = params.get('g')?.toUpperCase() || null;
+const isAdminMode = params.get('admin') === '1';
+const isVariantB = variant === 'B';
 
 function sendToSheetBatch(group, rows) {
   if (!SHEET_WEBAPP_URL || SHEET_WEBAPP_URL.startsWith('PASTE_')) return;
@@ -29,42 +33,35 @@ function sendToSheetBatch(group, rows) {
 }
 
 export default function App() {
-  const [isAdmin, setIsAdmin]         = useState(false);
-  const [curGroup, setCurGroup]       = useState('G1');
-  const [curTrial, setCurTrial]       = useState(0);
-  const [phase, setPhase]             = useState('welcome'); // 'welcome'|'read'|'q'|'done'
+  const [curGroup, setCurGroup] = useState(groupParam);
+  const [curTrial, setCurTrial] = useState(0);
+  const [phase, setPhase] = useState(
+    groupParam ? (isVariantB ? 'q' : 'read') : 'welcome'
+  );
   const [responseLog, setResponseLog] = useState([]);
 
   const readingColRef = useRef(null);
-  const questionStartsRef = useRef({});
+  const questionStartsRef = useRef(
+    groupParam && isVariantB && SESSIONS[groupParam]
+      ? (() => {
+          const seq = SESSIONS[groupParam];
+          const p = PASSAGES[seq[0]];
+          const now = Date.now();
+          const starts = {};
+          p.q.forEach(q => { starts[q.id] = now; });
+          return starts;
+        })()
+      : {}
+  );
 
-  const isVariantB = variant === 'B';
   const passage = curGroup ? PASSAGES[SESSIONS[curGroup][curTrial]] : null;
 
   useEffect(() => {
     if (passage) document.body.classList.toggle('bold-mode', passage.bold);
   }, [passage]);
 
-  useEffect(() => {
-    document.body.classList.toggle('admin-mode', isAdmin);
-    document.body.classList.toggle('participant-mode', !isAdmin);
-  }, [isAdmin]);
-
   function scrollTop() {
     if (readingColRef.current) readingColRef.current.scrollTop = 0;
-  }
-
-  function selectGroup(g) {
-    setCurGroup(g);
-    setCurTrial(0);
-    setPhase(isVariantB ? 'q' : 'read');
-    if (isVariantB) {
-      const seq = SESSIONS[g];
-      const p = PASSAGES[seq[0]];
-      const now = Date.now();
-      p.q.forEach(q => { questionStartsRef.current[q.id] = now; });
-    }
-    scrollTop();
   }
 
   function jumpTrial(idx) {
@@ -108,7 +105,6 @@ export default function App() {
       if (prev.some(r => r.question === qid)) return prev;
       return [...prev, row];
     });
-    // Write to Supabase immediately
     supabase.from('responses').insert({
       group_id: curGroup,
       variant,
@@ -143,52 +139,28 @@ export default function App() {
     if (rows.length) sendToSheetBatch(curGroup, rows);
   }
 
-  function exportLog() {
-    const rows = ['Time,Subject,Variant,Passage,Question,Response,Correct,ElapsedSeconds'];
-    responseLog.forEach(r => {
-      rows.push([r.time, r.group, r.variant, r.passage, r.question, r.response, r.correct, r.elapsed].join(','));
-    });
-    const blob = new Blob([rows.join('\n')], { type: 'text/csv' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `EAR_responses_${new Date().toISOString().slice(0, 10)}.csv`;
-    a.click();
-    URL.revokeObjectURL(url);
-  }
-
   const seq = curGroup ? SESSIONS[curGroup] : [];
   const progress = phase === 'done' ? TOTAL_TRIALS : curTrial;
-
 
   return (
     <VariantContext.Provider value={variant}>
       <div className="app">
         <Toolbar
-          isAdmin={isAdmin}
-          onToggleAdmin={() => setIsAdmin(v => !v)}
+          isAdmin={isAdminMode}
           progress={progress}
           total={TOTAL_TRIALS}
-          variant={variant}
         />
 
-        {isAdmin ? (
-          <AdminPanel
-            curGroup={curGroup}
-            onSelectGroup={selectGroup}
-            responseLog={responseLog}
-            onExport={exportLog}
-          />
+        {isAdminMode ? (
+          <AdminPanel />
         ) : (
           <div className="body-layout">
             <Sidebar
               curGroup={curGroup}
               curTrial={curTrial}
-              onSelectGroup={selectGroup}
               onJumpTrial={jumpTrial}
             />
 
-            {/* Variant B: split layout takes over the reading col entirely */}
             {isVariantB && phase === 'q' && passage ? (
               <SplitView
                 key={`${curGroup}-${curTrial}`}
@@ -211,10 +183,7 @@ export default function App() {
 
                   {(phase === 'read' || phase === 'q') && passage && (
                     phase === 'read' ? (
-                      <ReadingView
-                        passage={passage}
-                        onProceed={proceedToQ}
-                      />
+                      <ReadingView passage={passage} onProceed={proceedToQ} />
                     ) : (
                       <QuestionView
                         key={`${curGroup}-${curTrial}`}
