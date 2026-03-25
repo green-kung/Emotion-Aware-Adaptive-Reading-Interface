@@ -1,6 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
+import { createClient } from '@supabase/supabase-js';
 import { PASSAGES } from './data/passages';
 import { SESSIONS, SHEET_WEBAPP_URL } from './data/sessions';
+
+const supabase = createClient(
+  'https://feysaqreyldhstkontbf.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZleXNhcXJleWxkaHN0a29udGJmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ0Mjk5MDksImV4cCI6MjA5MDAwNTkwOX0.M9ZCMpttTQMMxvvUNtXmXA7jwGwi-8fcLOXpuJZSdQE'
+);
 import { VariantContext } from './context/VariantContext';
 import Toolbar from './components/Toolbar';
 import Sidebar from './components/Sidebar';
@@ -101,6 +107,19 @@ export default function App() {
     setResponseLog(prev => {
       if (prev.some(r => r.question === qid)) return prev;
       return [...prev, row];
+    });
+    // Write to Supabase immediately
+    supabase.from('responses').insert({
+      group_id: curGroup,
+      variant,
+      trial: curTrial + 1,
+      passage: passageId,
+      question: qid,
+      response: letter,
+      correct,
+      elapsed_sec: elapsedSec,
+    }).then(({ error }) => {
+      if (error) console.error('Supabase insert error:', error.message);
     });
   }
 
