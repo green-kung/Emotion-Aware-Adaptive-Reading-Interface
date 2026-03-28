@@ -16,6 +16,13 @@ const supabase = createClient(
 );
 
 const TOTAL_TRIALS = 6;
+
+function nowTaipei() {
+  const d = new Date();
+  const offset = 8 * 60 * 60 * 1000;
+  return new Date(d.getTime() + offset).toISOString().replace('Z', '+08:00');
+}
+
 const params = new URLSearchParams(window.location.search);
 const variant = params.get('v')?.toUpperCase() || 'A';
 const groupParam = params.get('g')?.toUpperCase() || null;
@@ -99,7 +106,7 @@ export default function App() {
       response: letter,
       correct,
       elapsed: elapsedSec,
-      time: new Date().toISOString(),
+      time: nowTaipei(),
     };
     setResponseLog(prev => {
       if (prev.some(r => r.question === qid)) return prev;
