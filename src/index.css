@@ -329,7 +329,8 @@ body.bold-mode .kw { font-weight: 700; }
   border-right: var(--bw) solid var(--c-border);
   --fs-body: 21px;
 }
-.split-article .art-title { font-size: 31px; }
+.split-article .art-title { font-size: 35px; }
+.split-article .body > p:first-of-type::first-letter { font-size: inherit; float: none; line-height: inherit; padding: 0; }
 .split-questions {
   flex: 1;
   overflow: hidden;
