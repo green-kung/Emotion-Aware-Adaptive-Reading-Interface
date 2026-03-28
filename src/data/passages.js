@@ -3,7 +3,8 @@ export const PASSAGES = {
     label: 'A1', type: 'A', bold: false,
     title: 'Why You Make Better Decisions at Some Times Than Others',
     sub: '', source: '',
-    body: `<p>Most people assume that decision-making ability stays roughly the same throughout the day. Research suggests otherwise. The brain uses a limited amount of mental energy, and this energy is consumed each time a person makes a choice — even a small one. As the day goes on and more decisions are made, the quality of later decisions tends to fall. This is why judges in studies gave more lenient rulings in the morning than later in the day, and why people are more likely to choose unhealthy food in the evening. Saving important decisions for times when mental energy is high may lead to better outcomes.</p>`,
+    body: `<p>Most people assume that decision-making ability stays roughly the same throughout the day. Research suggests otherwise. The brain uses a limited amount of mental energy, and this energy is consumed each time a person makes a choice — even a small one.</p>
+<p>As the day goes on and more decisions are made, the quality of later decisions tends to fall. This is why judges in studies gave more lenient rulings in the morning than later in the day, and why people are more likely to choose unhealthy food in the evening. Saving important decisions for times when mental energy is high may lead to better outcomes.</p>`,
     q: [
       { id: 'A1Q1',
         stem: '1. Based on the passage, why might a person choose unhealthy food more often in the evening than in the morning?',
@@ -30,7 +31,8 @@ export const PASSAGES = {
     label: 'A2', type: 'A', bold: true,
     title: 'How Noise Affects the Way You Think',
     sub: '', source: '',
-    body: `<p><span class="kw">Background noise</span> can affect thinking in ways most people do not expect. A small amount of noise — such as the <span class="kw">low hum</span> of a coffee shop — can actually <span class="kw">improve creative thinking</span>. This is because mild noise raises the level of mental activity just enough to encourage the brain to think in <span class="kw">broader, less direct ways</span>. However, when noise becomes <span class="kw">too loud</span>, it forces the brain to use more energy <span class="kw">blocking it out</span>, leaving less energy for thinking. This is why very quiet environments help with tasks that need <span class="kw">focused attention</span>, while moderate noise may be better for tasks that need <span class="kw">new ideas</span>.</p>`,
+    body: `<p><span class="kw">Background noise</span> can affect thinking in ways most people do not expect. A small amount of noise — such as the <span class="kw">low hum</span> of a coffee shop — can actually <span class="kw">improve creative thinking</span>. This is because mild noise raises the level of mental activity just enough to encourage the brain to think in <span class="kw">broader, less direct ways</span>.</p>
+<p>However, when noise becomes <span class="kw">too loud</span>, it forces the brain to use more energy <span class="kw">blocking it out</span>, leaving less energy for thinking. This is why very quiet environments help with tasks that need <span class="kw">focused attention</span>, while moderate noise may be better for tasks that need <span class="kw">new ideas</span>.</p>`,
     q: [
       { id: 'A2Q1',
         stem: '1. Based on the passage, what can be inferred about why a coffee shop might be a good place to brainstorm?',

@@ -327,7 +327,9 @@ body.bold-mode .kw { font-weight: 700; }
   flex: 1;
   overflow: hidden;
   border-right: var(--bw) solid var(--c-border);
+  --fs-body: 21px;
 }
+.split-article .art-title { font-size: 31px; }
 .split-questions {
   flex: 1;
   overflow: hidden;
