@@ -4,7 +4,8 @@ export const PASSAGES = {
     title: 'Why You Make Better Decisions at Some Times Than Others',
     sub: '', source: '',
     body: `<p>Most people assume that decision-making ability stays roughly the same throughout the day. Research suggests otherwise. The brain uses a limited amount of mental energy, and this energy is consumed each time a person makes a choice — even a small one.</p>
-<p>As the day goes on and more decisions are made, the quality of later decisions tends to fall. This is why judges in studies gave more lenient rulings in the morning than later in the day, and why people are more likely to choose unhealthy food in the evening. Saving important decisions for times when mental energy is high may lead to better outcomes.</p>`,
+<p>As the day goes on and more decisions are made, the quality of later decisions tends to fall.</p>
+<p>This is why judges in studies gave more lenient rulings in the morning than later in the day, and why people are more likely to choose unhealthy food in the evening. Saving important decisions for times when mental energy is high may lead to better outcomes.</p>`,
     q: [
       { id: 'A1Q1',
         stem: '1. Based on the passage, why might a person choose unhealthy food more often in the evening than in the morning?',
@@ -31,8 +32,9 @@ export const PASSAGES = {
     label: 'A2', type: 'A', bold: true,
     title: 'How Noise Affects the Way You Think',
     sub: '', source: '',
-    body: `<p><span class="kw">Background noise</span> can affect thinking in ways most people do not expect. A small amount of noise — such as the <span class="kw">low hum</span> of a coffee shop — can actually <span class="kw">improve creative thinking</span>. This is because mild noise raises the level of mental activity just enough to encourage the brain to think in <span class="kw">broader, less direct ways</span>.</p>
-<p>However, when noise becomes <span class="kw">too loud</span>, it forces the brain to use more energy <span class="kw">blocking it out</span>, leaving less energy for thinking. This is why very quiet environments help with tasks that need <span class="kw">focused attention</span>, while moderate noise may be better for tasks that need <span class="kw">new ideas</span>.</p>`,
+    body: `<p><span class="kw">Background noise</span> can affect thinking in ways most people do not expect. A small amount of noise — such as the <span class="kw">low hum</span> of a coffee shop — can actually <span class="kw">improve creative thinking</span>.</p>
+<p>This is because mild noise raises the level of mental activity just enough to encourage the brain to think in <span class="kw">broader, less direct ways</span>. However, when noise becomes <span class="kw">too loud</span>, it forces the brain to use more energy <span class="kw">blocking it out</span>, leaving less energy for thinking.</p>
+<p>This is why very quiet environments help with tasks that need <span class="kw">focused attention</span>, while moderate noise may be better for tasks that need <span class="kw">new ideas</span>.</p>`,
     q: [
       { id: 'A2Q1',
         stem: '1. Based on the passage, what can be inferred about why a coffee shop might be a good place to brainstorm?',
@@ -59,8 +61,9 @@ export const PASSAGES = {
     label: 'B1', type: 'B', bold: false,
     title: 'Is Drinking Water Always Good for You?',
     sub: '', source: '',
-    body: `<p>Water is essential for life. Every health guide recommends drinking enough water every day. Staying hydrated helps your organs work properly, keeps your skin healthy, and improves your energy levels. Most people have heard this advice since childhood and follow it without question.</p>
-<p>However, research shows that drinking too much water in a short time can be dangerous. It can lower the level of sodium in the blood to a point where the brain and muscles stop working normally. Athletes who drink large amounts of water during long races have experienced this condition. In some cases, it has caused serious health problems. The body needs water — but the right amount matters more than people think.</p>`,
+    body: `<p>Water is essential for life. Every health guide recommends drinking enough water every day. Staying hydrated helps your organs work properly, keeps your skin healthy, and improves your energy levels.</p>
+<p>Most people have heard this advice since childhood and follow it without question. However, research shows that drinking too much water in a short time can be dangerous. It can lower the level of sodium in the blood to a point where the brain and muscles stop working normally.</p>
+<p>Athletes who drink large amounts of water during long races have experienced this condition. In some cases, it has caused serious health problems. The body needs water — but the right amount matters more than people think.</p>`,
     q: [
       { id: 'B1Q1',
         stem: '1. The passage presents two ideas about drinking water. Which statement best describes the conflict between them?',
@@ -87,8 +90,9 @@ export const PASSAGES = {
     label: 'B2', type: 'B', bold: true,
     title: 'Does Getting More Sleep Always Make You Feel Better?',
     sub: '', source: '',
-    body: `<p>Sleep is widely understood to be one of the most important things for <span class="kw">good health</span>. Doctors recommend that adults get <span class="kw">seven to nine hours</span> of sleep each night. People who sleep well tend to have better <span class="kw">memory</span>, <span class="kw">mood</span>, and <span class="kw">energy</span>. This advice is supported by a large amount of research and is repeated in almost every health guide.</p>
-<p>Yet studies also show that people who <span class="kw">regularly sleep more than nine hours</span> a night report feeling <span class="kw">more tired</span>, not less. They also show higher rates of <span class="kw">low mood</span> and difficulty <span class="kw">concentrating</span>. Researchers are not yet sure whether <span class="kw">too much sleep</span> causes these problems or whether people sleep longer because they already have them. Either way, the relationship between sleep and feeling well is more <span class="kw">complicated</span> than it first appears.</p>`,
+    body: `<p>Sleep is widely understood to be one of the most important things for <span class="kw">good health</span>. Doctors recommend that adults get <span class="kw">seven to nine hours</span> of sleep each night. People who sleep well tend to have better <span class="kw">memory</span>, <span class="kw">mood</span>, and <span class="kw">energy</span>.</p>
+<p>This advice is supported by a large amount of research and is repeated in almost every health guide. Yet studies also show that people who <span class="kw">regularly sleep more than nine hours</span> a night report feeling <span class="kw">more tired</span>, not less.</p>
+<p>They also show higher rates of <span class="kw">low mood</span> and difficulty <span class="kw">concentrating</span>. Researchers are not yet sure whether <span class="kw">too much sleep</span> causes these problems or whether people sleep longer because they already have them. Either way, the relationship between sleep and feeling well is more <span class="kw">complicated</span> than it first appears.</p>`,
     q: [
       { id: 'B2Q1',
         stem: '1. The passage suggests that the relationship between sleep and health is best described as:',
@@ -116,7 +120,8 @@ export const PASSAGES = {
     title: 'Do We Only Use Ten Percent of Our Brain?',
     sub: '', source: '',
     body: `<p>Many people believe that humans use only ten percent of their brain. This idea appears in advertisements, self-help books, and popular films. It suggests that most of the brain is inactive and that people have large amounts of unused mental potential.</p>
-<p>This claim is not supported by science. Brain imaging studies show that nearly all parts of the brain are active at some point during the day. Even during sleep, multiple areas continue to function. Doctors also know that damage to any part of the brain — whether small or large — always results in some loss of ability. If ninety percent of the brain were truly unused, damage to those areas would have no effect at all. All available evidence shows that the brain is fully used, not partially.</p>`,
+<p>This claim is not supported by science. Brain imaging studies show that nearly all parts of the brain are active at some point during the day. Even during sleep, multiple areas continue to function.</p>
+<p>Doctors also know that damage to any part of the brain — whether small or large — always results in some loss of ability. If ninety percent of the brain were truly unused, damage to those areas would have no effect at all. All available evidence shows that the brain is fully used, not partially.</p>`,
     q: [
       { id: 'C1Q1',
         stem: '1. Which of the following is the misconception that this passage argues against?',
@@ -144,7 +149,8 @@ export const PASSAGES = {
     title: 'Does Sugar Make Children Hyperactive?',
     sub: '', source: '',
     body: `<p>Many parents and teachers believe that <span class="kw">sugar</span> makes children <span class="kw">hyperactive</span>. This idea is very widespread. When children behave in an energetic or difficult-to-control way after eating sweets, adults often point to <span class="kw">sugar</span> as the cause. The belief feels logical and is repeated so often that most people accept it without question.</p>
-<p>However, <span class="kw">controlled studies</span> have tested this idea directly and found <span class="kw">no evidence</span> that it is true. In these experiments, children were given either <span class="kw">real sugar</span> or a <span class="kw">sugar-free substitute</span> that tasted the same. Neither the children nor the adults watching them knew which was which. The results were consistent: <span class="kw">sugar had no measurable effect</span> on the children's behavior. What actually changed was the <span class="kw">expectations</span> of the adults. Parents who believed their child had eaten sugar rated the child as <span class="kw">more active</span> — even when the child had not consumed any sugar at all.</p>`,
+<p>However, <span class="kw">controlled studies</span> have tested this idea directly and found <span class="kw">no evidence</span> that it is true. In these experiments, children were given either <span class="kw">real sugar</span> or a <span class="kw">sugar-free substitute</span> that tasted the same. Neither the children nor the adults watching them knew which was which.</p>
+<p>The results were consistent: <span class="kw">sugar had no measurable effect</span> on the children's behavior. What actually changed was the <span class="kw">expectations</span> of the adults. Parents who believed their child had eaten sugar rated the child as <span class="kw">more active</span> — even when the child had not consumed any sugar at all.</p>`,
     q: [
       { id: 'C2Q1',
         stem: '1. Which of the following best describes the <span class="kw">misconception</span> this passage addresses?',
