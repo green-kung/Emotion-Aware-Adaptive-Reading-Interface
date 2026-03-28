@@ -121,6 +121,7 @@ export default function App() {
       response: letter,
       correct,
       elapsed_sec: elapsedSec,
+      responded_at: nowTaipei(),
     }).then(({ error }) => {
       if (error) console.error('Supabase insert error:', error.message);
     });
