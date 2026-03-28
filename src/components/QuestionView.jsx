@@ -26,7 +26,7 @@ export default function QuestionView({ passage, trialIdx, totalTrials, onNext, o
       <div className="q-page-header">
         <div className="q-page-rule" />
         <span className="q-page-eyebrow">
-          Comprehension Questions &nbsp;•&nbsp; Passage {passage.label}
+          Passage {passage.label}
         </span>
         <div className="q-page-rule" />
       </div>

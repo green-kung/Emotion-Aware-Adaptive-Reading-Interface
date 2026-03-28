@@ -37,7 +37,7 @@ export default function SplitView({ passage, trialIdx, totalTrials, onNext, onFi
           <div className="q-page-header">
             <div className="q-page-rule" />
             <span className="q-page-eyebrow">
-              Comprehension Questions &nbsp;•&nbsp; Passage {passage.label}
+              Passage {passage.label}
             </span>
             <div className="q-page-rule" />
           </div>
