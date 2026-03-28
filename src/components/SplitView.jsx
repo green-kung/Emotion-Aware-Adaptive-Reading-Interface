@@ -83,7 +83,6 @@ export default function SplitView({ passage, trialIdx, totalTrials, onNext, onFi
           )}
 
           <div className="foot">
-            <sup>*</sup>&ensp;Passage {passage.label}. IRB Protocol #2024-CR-0417.
           </div>
         </div>
       </div>

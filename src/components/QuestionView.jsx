@@ -77,7 +77,6 @@ export default function QuestionView({ passage, trialIdx, totalTrials, onNext, o
       )}
 
       <div className="foot">
-        <sup>*</sup>&ensp;Passage {passage.label}. IRB Protocol #2024-CR-0417.
       </div>
     </div>
   );
