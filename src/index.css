@@ -325,18 +325,12 @@ body.bold-mode .kw { font-weight: 700; }
 }
 .split-article {
   flex: 1;
-  overflow-y: auto;
+  overflow: hidden;
   border-right: var(--bw) solid var(--c-border);
 }
-.split-article::-webkit-scrollbar { width: 5px; }
-.split-article::-webkit-scrollbar-track { background: transparent; }
-.split-article::-webkit-scrollbar-thumb { background: var(--c-scroll); border-radius: 3px; }
 .split-questions {
   flex: 1;
-  overflow-y: auto;
+  overflow: hidden;
   background: var(--c-surface);
 }
-.split-questions::-webkit-scrollbar { width: 5px; }
-.split-questions::-webkit-scrollbar-track { background: transparent; }
-.split-questions::-webkit-scrollbar-thumb { background: var(--c-scroll); border-radius: 3px; }
 .split-questions .page { padding-top: var(--sp-3xl); }
