@@ -334,6 +334,7 @@ body.bold-mode .kw { font-weight: 700; }
   flex: 1;
   overflow: hidden;
   background: var(--c-surface);
+  --fs-body: 21px;
 }
 .split-article .page,
 .split-questions .page {
