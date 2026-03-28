@@ -333,4 +333,9 @@ body.bold-mode .kw { font-weight: 700; }
   overflow: hidden;
   background: var(--c-surface);
 }
-.split-questions .page { padding-top: var(--sp-3xl); }
+.split-article .page,
+.split-questions .page {
+  max-width: none;
+  padding: 32px 48px 32px;
+  margin: 0;
+}
