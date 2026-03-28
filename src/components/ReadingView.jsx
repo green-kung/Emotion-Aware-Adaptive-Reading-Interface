@@ -9,10 +9,12 @@ export default function ReadingView({ passage, onProceed }) {
         <div className="eyebrow-rule" />
       </div>
       <h1 className="art-title">{title}</h1>
-      <p className="art-sub">{sub}</p>
-      <div className="art-meta">
-        <span className="meta-author" dangerouslySetInnerHTML={{ __html: source }} />
-      </div>
+      {sub && <p className="art-sub">{sub}</p>}
+      {source && (
+        <div className="art-meta">
+          <span className="meta-author" dangerouslySetInnerHTML={{ __html: source }} />
+        </div>
+      )}
 
       {intro && <div className="body" dangerouslySetInnerHTML={{ __html: intro }} />}
       {body && <div className="body" dangerouslySetInnerHTML={{ __html: body }} />}

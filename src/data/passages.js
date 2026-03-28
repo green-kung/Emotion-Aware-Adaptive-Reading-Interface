@@ -1,161 +1,167 @@
 export const PASSAGES = {
   A1: {
     label: 'A1', type: 'A', bold: false,
-    title: 'Notice: Update to Office Equipment Procurement Procedures',
-    sub: 'Internal notice requiring multi-step causal inference',
-    source: 'Meridian Group, Administrative Services',
-    scaffold: 'causal',
-    body: `<p>To: All Staff<br>From: Patricia Lund, Head of Administrative Services<br>Date: September 12<br>Re: Office Equipment Procurement</p>
-<p>Effective October 1, all requests to purchase office equipment valued at more than $300 must be submitted through the new <span class="kw">centralized procurement portal</span> and approved by both the department supervisor and the <span class="kw">Facilities Management team</span> before any order is placed. Purchases made without following this procedure will not be reimbursed.</p>
-<p>This change follows an internal audit finding that <span class="kw">unauthorized equipment purchases</span> increased by 27% last year, resulting in duplicate items, incompatible hardware, and storage shortfalls. The total annual equipment budget for each department remains unchanged.</p>
-<p>Training sessions on using the new portal will be held every Tuesday in Room 4B throughout October. Registration is available through the intranet under <span class="hl">Staff Development &gt; Training Calendar<span class="hl-tip">Access the registration page via the company intranet</span></span>.</p>`,
-    causal: [
-      { n: '01', t: 'Unauthorized purchases rose 27% → budget was spent on duplicate and incompatible items, leaving some departments short of usable equipment.' },
-      { n: '02', t: 'Dual-approval now required → purchases that previously took one day now require coordination between two parties before any order can proceed.' },
-      { n: '03', t: 'Budget unchanged despite new controls → departments must plan purchases further in advance and justify each item before the portal approval window closes.' }
-    ],
+    title: 'Why You Make Better Decisions at Some Times Than Others',
+    sub: '', source: '',
+    body: `<p>Most people assume that decision-making ability stays roughly the same throughout the day. Research suggests otherwise. The brain uses a limited amount of mental energy, and this energy is consumed each time a person makes a choice — even a small one. As the day goes on and more decisions are made, the quality of later decisions tends to fall. This is why judges in studies gave more lenient rulings in the morning than later in the day, and why people are more likely to choose unhealthy food in the evening. Saving important decisions for times when mental energy is high may lead to better outcomes.</p>`,
     q: [
-      { id: 'A1Q1', stem: '1. What is the main reason given for the new procurement procedure?',
-        opts: ['A|An external supplier requested a centralized ordering system.', 'B|Unauthorized equipment purchases increased and caused operational problems.', 'C|The Facilities Management team will be reduced in size from October.', 'D|Staff training on equipment use had been neglected in recent years.'],
-        ans: 'B', exp: 'The notice states that unauthorized purchases increased by 27%, leading to duplicate items, incompatible hardware, and storage problems. This is the stated reason. Answer: <strong>B</strong>.' },
-      { id: 'A1Q2', stem: '2. What can be inferred about a staff member who buys a $350 printer in October without using the portal?',
-        opts: ['A|The purchase will be approved retroactively if a justification is submitted within 30 days.', 'B|The staff member will not be reimbursed for the purchase.', 'C|The order will be cancelled by the Facilities Management team automatically.', 'D|The staff member must attend a mandatory training session as a consequence.'],
-        ans: 'B', exp: 'The notice states that purchases made without following the new procedure "will not be reimbursed." A $350 printer exceeds the $300 threshold. Answer: <strong>B</strong>.' }
+      { id: 'A1Q1',
+        stem: '1. Based on the passage, why might a person choose unhealthy food more often in the evening than in the morning?',
+        opts: [
+          'A|People are hungrier in the evening because they have not eaten enough during the day.',
+          'B|Healthy food is less available in the evening than in the morning.',
+          'C|Mental energy has been used up through the day\'s decisions, making self-control harder.',
+          'D|People feel more relaxed in the evening and pay less attention to their choices.',
+        ],
+        ans: 'C' },
+      { id: 'A1Q2',
+        stem: '2. A manager needs to make an important hiring decision. Based on the passage, what can be inferred about the best time to do this?',
+        opts: [
+          'A|Late in the afternoon, when the manager has had time to think carefully.',
+          'B|In the evening, after all other tasks are completed.',
+          'C|At a time earlier in the day, before mental energy has been reduced by other decisions.',
+          'D|The time of day has no effect on the quality of important decisions.',
+        ],
+        ans: 'C' },
     ]
   },
 
   A2: {
     label: 'A2', type: 'A', bold: true,
-    title: 'Memorandum: Changes to Staff Parking Allocation',
-    sub: 'Internal communication requiring multi-step causal reasoning',
-    source: 'Cranfield Solutions, Facilities Department',
-    scaffold: 'causal',
-    body: `<p>To: All Employees<br>From: Daniel Park, Facilities Manager<br>Date: February 7<br>Re: Staff Parking Changes</p>
-<p>Beginning March 1, the number of <span class="kw">reserved parking spaces</span> available to general staff will be reduced from 120 to 80. Priority allocation will be given to employees with documented <span class="kw">mobility or medical requirements</span>, followed by those with the longest continuous service records.</p>
-<p>This reduction is a result of an agreement with the neighboring building management to convert the eastern section of the parking lot into a <span class="kw">shared loading zone</span>, which will remain in use from 7 a.m. to 6 p.m. on weekdays. The change is expected to affect approximately 40 employees who currently hold reserved spaces.</p>
-<p>Employees who will lose their reserved spaces will be contacted individually by the end of February and offered alternative <span class="hl">park-and-ride arrangements<span class="hl-tip">Subsidized transport scheme connecting nearby parking to the office</span></span> at reduced cost.</p>`,
-    causal: [
-      { n: '01', t: 'Eastern lot converted to loading zone → usable staff parking spaces reduced from 120 to 80, a net loss of 40 spaces.' },
-      { n: '02', t: 'Priority given to medical/mobility needs then seniority → staff without these criteria are most likely to lose reserved spaces, regardless of current usage.' },
-      { n: '03', t: '~40 staff affected → those employees face a longer or more costly commute unless they accept the park-and-ride alternative being offered.' }
-    ],
+    title: 'How Noise Affects the Way You Think',
+    sub: '', source: '',
+    body: `<p><span class="kw">Background noise</span> can affect thinking in ways most people do not expect. A small amount of noise — such as the <span class="kw">low hum</span> of a coffee shop — can actually <span class="kw">improve creative thinking</span>. This is because mild noise raises the level of mental activity just enough to encourage the brain to think in <span class="kw">broader, less direct ways</span>. However, when noise becomes <span class="kw">too loud</span>, it forces the brain to use more energy <span class="kw">blocking it out</span>, leaving less energy for thinking. This is why very quiet environments help with tasks that need <span class="kw">focused attention</span>, while moderate noise may be better for tasks that need <span class="kw">new ideas</span>.</p>`,
     q: [
-      { id: 'A2Q1', stem: '1. Why is the number of <span class="kw">reserved parking spaces</span> being <span class="kw">reduced</span>?',
-        opts: ['A|The company plans to reduce its total number of employees by March.', 'B|Part of the parking lot will be converted into a <span class="kw">shared loading zone</span>.', 'C|The neighboring building has requested exclusive use of the parking facilities.', 'D|A new public transport route now serves the area around the office.'],
-        ans: 'B', exp: 'The memo indicates the change is tied to arrangements involving the neighboring building, leading to reduced reserved spaces. Answer: <strong>B</strong>.' },
-      { id: 'A2Q2', stem: '2. <span class="kw">Which employees</span> are most likely to retain their reserved parking spaces under the new policy?',
-        opts: ['A|Employees who currently commute the greatest distance to the office.', 'B|Employees who use their vehicles most frequently for business purposes.', 'C|Employees with documented <span class="kw">mobility or medical requirements</span> or the longest service records.', 'D|Employees who register their preference before the end of February.'],
-        ans: 'C', exp: 'The memo states priority goes to employees with "documented mobility or medical requirements," followed by those with the longest continuous service records. Answer: <strong>C</strong>.' }
+      { id: 'A2Q1',
+        stem: '1. Based on the passage, what can be inferred about why a coffee shop might be a good place to brainstorm?',
+        opts: [
+          'A|Coffee shops are always quiet and free from interruptions.',
+          'B|The <span class="kw">low level of noise</span> encourages <span class="kw">broader thinking</span> without overloading the brain.',
+          'C|People feel more relaxed in social environments, which reduces stress.',
+          'D|Coffee improves brain function and helps with <span class="kw">creative thinking</span>.',
+        ],
+        ans: 'B' },
+      { id: 'A2Q2',
+        stem: '2. What does the passage imply about the best environment for detailed, focused work?',
+        opts: [
+          'A|A place with <span class="kw">moderate noise</span> to keep the brain stimulated.',
+          'B|A busy environment with many people talking nearby.',
+          'C|A very <span class="kw">quiet environment</span> that does not require the brain to <span class="kw">block out</span> sound.',
+          'D|An outdoor space with natural sounds in the background.',
+        ],
+        ans: 'C' },
     ]
   },
 
   B1: {
     label: 'B1', type: 'B', bold: false,
-    title: 'Workplace Design Review: Two Perspectives on Office Layout',
-    sub: 'Conflicting internal recommendations on the same organizational question',
-    source: 'Alderton Partners, Office Strategy Review',
-    scaffold: 'conflict',
-    intro: `<p>The following two position papers were submitted to the Strategy Committee in response to a proposal to redesign the company&rsquo;s main office floor. Both were written by senior managers with access to the same internal usage data.</p>`,
-    tension: 'Both positions are supported by the same internal data. They disagree not on the facts, but on which outcome — focus and output, or communication and culture — the office design should prioritize.',
-    posA: {
-      label: 'Position A', sub: 'Maintain open-plan layout',
-      text: `<p>Director of Operations, R. Castellano:</p>
-<p>Our current open-plan layout has measurably improved <span class="kw">cross-team visibility</span> and reduced the time required to resolve day-to-day coordination issues. Desk utilization data shows that <span class="kw">75% of workstations</span> are occupied during core hours, indicating that staff actively choose to work in the shared space. Converting to private offices would fragment communication and slow down the informal decision-making that currently keeps projects moving.</p>`
-    },
-    posB: {
-      label: 'Position B', sub: 'Shift to private office model',
-      text: `<p>Director of Product, S. Nguyen:</p>
-<p>Our most recent employee survey shows that <span class="kw">62% of staff</span> report difficulty concentrating in the current open-plan environment, and <span class="kw">deep work sessions</span> lasting more than 90 minutes have declined by 31% over two years. Productivity gains from informal coordination are offset by the cumulative cost of <span class="kw">interrupted focus</span>. Private offices would allow staff to self-manage their attention more effectively.</p>`
-    },
+    title: 'Is Drinking Water Always Good for You?',
+    sub: '', source: '',
+    body: `<p>Water is essential for life. Every health guide recommends drinking enough water every day. Staying hydrated helps your organs work properly, keeps your skin healthy, and improves your energy levels. Most people have heard this advice since childhood and follow it without question.</p>
+<p>However, research shows that drinking too much water in a short time can be dangerous. It can lower the level of sodium in the blood to a point where the brain and muscles stop working normally. Athletes who drink large amounts of water during long races have experienced this condition. In some cases, it has caused serious health problems. The body needs water — but the right amount matters more than people think.</p>`,
     q: [
-      { id: 'B1Q1', stem: '1. What is the core disagreement between the two directors?',
-        opts: ['A|Whether the open-plan layout increases or decreases total desk utilization.', 'B|Whether office design should prioritize communication ease or individual concentration.', 'C|Whether the renovation budget is sufficient to convert the floor to private offices.', 'D|Whether employees were consulted before the original open-plan design was adopted.'],
-        ans: 'B', exp: 'Castellano values the communication and coordination benefits of open-plan. Nguyen argues these are outweighed by the concentration costs. The disagreement is about which outcome the design should serve. Answer: <strong>B</strong>.' },
-      { id: 'B1Q2', stem: "2. What does Nguyen imply about Castellano's desk utilization data?",
-        opts: ['A|The data was collected during an unusually busy period and is not representative.', 'B|High desk occupancy does not indicate that staff are working productively at those desks.', 'C|Utilization figures have been misreported and the actual rate is lower than 75%.', 'D|Desk occupancy rates are the most reliable indicator of office design effectiveness.'],
-        ans: 'B', exp: 'Nguyen does not dispute the 75% occupancy figure. Instead, she argues that productivity during those hours is impaired by interruptions — presence at a desk is not the same as effective work. Answer: <strong>B</strong>.' }
+      { id: 'B1Q1',
+        stem: '1. The passage presents two ideas about drinking water. Which statement best describes the conflict between them?',
+        opts: [
+          'A|Water is good for the skin but bad for the muscles.',
+          'B|Doctors recommend water, but athletes should avoid it.',
+          'C|Water is necessary for health, but drinking too much can cause serious harm.',
+          'D|Drinking water is only beneficial in the morning, not at other times.',
+        ],
+        ans: 'C' },
+      { id: 'B1Q2',
+        stem: '2. A person says: "I always drink as much water as possible because I think more is always better." What does the passage suggest about this belief?',
+        opts: [
+          'A|It is correct — drinking more water always leads to better health.',
+          'B|It is dangerous — people should drink as little water as possible.',
+          'C|It may not be accurate — the amount of water consumed matters significantly.',
+          'D|The passage does not provide enough information to evaluate this belief.',
+        ],
+        ans: 'C' },
     ]
   },
 
   B2: {
     label: 'B2', type: 'B', bold: true,
-    title: 'HR Policy Debate: Flexible Hours vs. Core Hours',
-    sub: 'Conflicting internal recommendations on working hour arrangements',
-    source: 'Tanaka &amp; Webb Consulting, HR Strategy Division',
-    scaffold: 'conflict',
-    intro: `<p>Two senior HR managers submitted the following recommendations after reviewing the company&rsquo;s current flexible working hours policy. Both had access to the same staff survey results and productivity records before writing their responses.</p>`,
-    tension: 'Both positions draw on the same survey data. The disagreement is about whether individual flexibility or team predictability should be the primary goal of the working hours policy.',
-    posA: {
-      label: 'Position A', sub: 'Expand flexible hours',
-      text: `<p>HR Manager, C. Bloom:</p>
-<p>Staff survey results show that <span class="kw">flexible start times</span> are the most valued workplace benefit, cited by 68% of respondents. Departments that already operate under flexible arrangements report <span class="kw">lower absenteeism rates</span> — down 22% compared to departments under fixed hours. Restricting flexibility would signal a lack of trust in employees and risk losing high performers to competitors who offer more autonomy.</p>`
-    },
-    posB: {
-      label: 'Position B', sub: 'Restore core hours',
-      text: `<p>HR Manager, T. Adeyemi:</p>
-<p>While flexible hours reduce absenteeism, our data shows that <span class="kw">cross-team meetings</span> are taking significantly longer to schedule, with average lead time up from 1.2 to 3.6 days over the past year. <span class="kw">Client-facing teams</span> have flagged repeated service delays caused by key staff being unavailable during standard business hours. The efficiency gains from flexibility are being consumed by coordination overhead that falls disproportionately on team leaders.</p>`
-    },
+    title: 'Does Getting More Sleep Always Make You Feel Better?',
+    sub: '', source: '',
+    body: `<p>Sleep is widely understood to be one of the most important things for <span class="kw">good health</span>. Doctors recommend that adults get <span class="kw">seven to nine hours</span> of sleep each night. People who sleep well tend to have better <span class="kw">memory</span>, <span class="kw">mood</span>, and <span class="kw">energy</span>. This advice is supported by a large amount of research and is repeated in almost every health guide.</p>
+<p>Yet studies also show that people who <span class="kw">regularly sleep more than nine hours</span> a night report feeling <span class="kw">more tired</span>, not less. They also show higher rates of <span class="kw">low mood</span> and difficulty <span class="kw">concentrating</span>. Researchers are not yet sure whether <span class="kw">too much sleep</span> causes these problems or whether people sleep longer because they already have them. Either way, the relationship between sleep and feeling well is more <span class="kw">complicated</span> than it first appears.</p>`,
     q: [
-      { id: 'B2Q1', stem: '1. What is the <span class="kw">primary disagreement</span> between Bloom and Adeyemi?',
-        opts: ['A|Whether the current <span class="kw">flexible start times</span> policy has been implemented correctly across all departments.', 'B|Whether individual scheduling autonomy or team-level coordination predictability should take priority.', 'C|Whether <span class="kw">lower absenteeism rates</span> or meeting efficiency is the more reliable measure of employee productivity.', 'D|Whether the HR department has the authority to change working hour policy unilaterally.'],
-        ans: 'B', exp: "Bloom emphasizes the individual benefits (satisfaction, lower absenteeism) of flexibility. Adeyemi argues flexibility creates coordination costs that affect team performance. The disagreement is about which value — individual or collective — the policy should serve. Answer: <strong>B</strong>." },
-      { id: 'B2Q2', stem: "2. What does Adeyemi imply about Bloom's <span class=\"kw\">absenteeism data</span>?",
-        opts: ["A|The reduction in absenteeism is a temporary effect that will disappear within six months.", 'B|<span class="kw">Lower absenteeism rates</span> do not offset the overhead that <span class="kw">cross-team meetings</span> and <span class="kw">client-facing teams</span> face under flexible hours.', 'C|Absenteeism in departments with fixed hours has also declined, making the comparison unreliable.', 'D|The survey used to measure absenteeism asked questions that were biased toward flexible arrangements.'],
-        ans: 'B', exp: 'Adeyemi does not dispute that absenteeism fell. She argues that flexibility creates coordination overhead — longer scheduling lead times and service delays — that cancels out those individual gains at the team level. Answer: <strong>B</strong>.' }
+      { id: 'B2Q1',
+        stem: '1. The passage suggests that the relationship between sleep and health is best described as:',
+        opts: [
+          'A|Simple — more sleep always leads to better health.',
+          'B|<span class="kw">Complicated</span> — sleeping too much may be linked to feeling <span class="kw">more tired</span> and <span class="kw">low mood</span>.',
+          'C|Unimportant — the number of hours slept has little effect on daily life.',
+          'D|Clear — people should sleep exactly <span class="kw">nine hours</span> every night for best results.',
+        ],
+        ans: 'B' },
+      { id: 'B2Q2',
+        stem: '2. A person says: "I always try to sleep as much as possible because more sleep means better health." What does the passage suggest about this belief?',
+        opts: [
+          'A|It is completely correct and supported by all research.',
+          'B|It is wrong — people should sleep as little as possible.',
+          'C|It may be <span class="kw">oversimplified</span> — sleeping <span class="kw">too much</span> can also be associated with negative outcomes.',
+          'D|The passage does not discuss this topic.',
+        ],
+        ans: 'C' },
     ]
   },
 
   C1: {
     label: 'C1', type: 'C', bold: false,
-    title: 'Reading on Screens Is Always Harder Than Reading on Paper',
-    sub: 'A common assumption examined against current research findings',
-    source: 'Digital Literacy Review, Issue 8',
-    scaffold: 'refutation',
-    intro: `<p>Many educators and office workers assume that reading long documents on screen is inherently more tiring and less effective than reading printed copies. This assumption is widely used to justify printing costs and paper-based workflows.</p>`,
-    myth: {
-      label: 'Common Belief', sub: 'Widely assumed',
-      text: 'Reading on a screen is always more fatiguing and less effective than reading on paper. Information read from a screen is less well retained, harder to navigate, and more likely to cause eye strain. For serious reading tasks, printed materials are always preferable.'
-    },
-    fact: {
-      label: 'Research Finding', sub: 'Evidence-based',
-      text: `Research comparing screen and paper reading has produced <span class="kw">mixed results</span> that depend heavily on the reading task, screen quality, and individual habits. Studies by Mangen et al. (2013) found that comprehension differences between screen and paper were significant for <span class="hl">linear narrative texts<span class="hl-tip">Texts read from start to finish without navigation, such as short stories or reports</span></span> but negligible for <span class="kw">reference materials</span> that readers scan rather than read sequentially. Modern <span class="kw">high-resolution displays</span> have largely eliminated the eye-strain differences observed in older studies.`
-    },
-    evidence: 'Source: Mangen, Walgermo &amp; Brønnick (2013), Reading Research Quarterly — comprehension gaps were task-dependent, not a fixed property of the reading medium.',
-    closing: `<p>The persistence of the paper-is-better assumption may reflect <span class="kw">familiarity bias</span> rather than evidence. Readers who have spent more time with printed materials tend to rate screen reading as less comfortable regardless of their measured comprehension. As digital reading habits develop, these <span class="kw">subjective preference gaps</span> narrow significantly, even when objective comprehension scores remain equivalent.</p>`,
+    title: 'Do We Only Use Ten Percent of Our Brain?',
+    sub: '', source: '',
+    body: `<p>Many people believe that humans use only ten percent of their brain. This idea appears in advertisements, self-help books, and popular films. It suggests that most of the brain is inactive and that people have large amounts of unused mental potential.</p>
+<p>This claim is not supported by science. Brain imaging studies show that nearly all parts of the brain are active at some point during the day. Even during sleep, multiple areas continue to function. Doctors also know that damage to any part of the brain — whether small or large — always results in some loss of ability. If ninety percent of the brain were truly unused, damage to those areas would have no effect at all. All available evidence shows that the brain is fully used, not partially.</p>`,
     q: [
-      { id: 'C1Q1', stem: '1. What does the research suggest about reading on screens compared to paper?',
-        opts: ['A|Screen reading is consistently more tiring and should be avoided for all serious tasks.', 'B|Differences between screen and paper reading depend on the type of task and quality of the display.', 'C|Paper is superior for reference materials but screens are better for narrative texts.', 'D|Screen reading always produces lower comprehension scores than paper reading.'],
-        ans: 'B', exp: 'The passage states that research results "depend heavily on the reading task, screen quality, and individual habits." Comprehension differences were significant for narrative texts but negligible for reference materials. Answer: <strong>B</strong>.' },
-      { id: 'C1Q2', stem: '2. Why does the author suggest the paper-is-better belief persists?',
-        opts: ['A|Because older research studies have been more widely cited than newer findings.', 'B|Because readers who are more familiar with print rate screen reading as less comfortable, regardless of actual performance.', 'C|Because high-resolution screens were only developed after most research on this topic was completed.', 'D|Because eye strain from screens has been proven to reduce retention over the long term.'],
-        ans: 'B', exp: 'The passage states the belief "may reflect familiarity bias — readers who have spent more time with printed materials tend to rate screen reading as less comfortable regardless of their measured comprehension." Answer: <strong>B</strong>.' }
+      { id: 'C1Q1',
+        stem: '1. Which of the following is the misconception that this passage argues against?',
+        opts: [
+          'A|The brain becomes less active as a person gets older.',
+          'B|Humans use only ten percent of their brain.',
+          'C|Brain damage always leads to permanent disability.',
+          'D|Sleep is necessary for the brain to function properly.',
+        ],
+        ans: 'B' },
+      { id: 'C1Q2',
+        stem: '2. The author uses brain damage as evidence. What incorrect idea does this evidence help to disprove?',
+        opts: [
+          'A|That the brain works harder during sleep than when awake.',
+          'B|That brain imaging technology is not accurate enough to measure activity.',
+          'C|That ninety percent of the brain is unused and therefore unimportant.',
+          'D|That mental ability can be improved through regular exercise.',
+        ],
+        ans: 'C' },
     ]
   },
 
   C2: {
     label: 'C2', type: 'C', bold: true,
-    title: 'Handwriting Notes Is Always More Effective Than Typing Them',
-    sub: 'A widespread study-skills belief examined against current research',
-    source: 'Workplace Learning Quarterly, Vol. 9',
-    scaffold: 'refutation',
-    intro: `<p>It is widely advised in educational and professional training contexts that participants should take notes by hand rather than on a laptop. This recommendation is often presented as a settled finding of learning science.</p>`,
-    myth: {
-      label: 'Common Belief', sub: 'Widely advised',
-      text: 'Handwritten notes are always more effective for learning than typed notes. Writing by hand forces summarization and deeper processing, while typing encourages verbatim transcription without understanding. Laptops should therefore be banned from classrooms and training sessions.'
-    },
-    fact: {
-      label: 'Research Finding', sub: 'Evidence-based',
-      text: `The research basis for this claim is narrower than commonly assumed. Mueller &amp; Oppenheimer (2014), frequently cited as proof, found an advantage for handwriting specifically in <span class="kw">conceptual question performance</span> when participants transcribed lectures verbatim. However, when participants were trained to <span class="hl">take selective notes on laptops<span class="hl-tip">Summarizing key points rather than transcribing everything said</span></span>, the performance gap was substantially reduced. The effect depends on <span class="kw">note-taking strategy</span>, not the medium itself.`
-    },
-    evidence: 'Source: Mueller &amp; Oppenheimer (2014), Psychological Science — the handwriting advantage diminished when laptop users adopted selective rather than verbatim note-taking.',
-    closing: `<p>The recommendation to ban laptops may therefore address a <span class="kw">behavioral problem</span> — verbatim transcription — rather than an intrinsic property of the tool. Training participants in <span class="kw">active summarization strategies</span> may be more effective than restricting the medium, particularly in professional settings where participants already manage large volumes of written information daily.</p>`,
+    title: 'Does Sugar Make Children Hyperactive?',
+    sub: '', source: '',
+    body: `<p>Many parents and teachers believe that <span class="kw">sugar</span> makes children <span class="kw">hyperactive</span>. This idea is very widespread. When children behave in an energetic or difficult-to-control way after eating sweets, adults often point to <span class="kw">sugar</span> as the cause. The belief feels logical and is repeated so often that most people accept it without question.</p>
+<p>However, <span class="kw">controlled studies</span> have tested this idea directly and found <span class="kw">no evidence</span> that it is true. In these experiments, children were given either <span class="kw">real sugar</span> or a <span class="kw">sugar-free substitute</span> that tasted the same. Neither the children nor the adults watching them knew which was which. The results were consistent: <span class="kw">sugar had no measurable effect</span> on the children's behavior. What actually changed was the <span class="kw">expectations</span> of the adults. Parents who believed their child had eaten sugar rated the child as <span class="kw">more active</span> — even when the child had not consumed any sugar at all.</p>`,
     q: [
-      { id: 'C2Q1', stem: '1. According to the passage, what does the Mueller & Oppenheimer study actually show?',
-        opts: ['A|Handwriting is always more effective than typing for all types of learning tasks.', 'B|Typed notes produced better performance than handwritten notes in <span class="kw">conceptual question performance</span>.', 'C|The handwriting advantage applies mainly when laptop users type verbatim rather than using a selective <span class="kw">note-taking strategy</span>.', 'D|Banning laptops from training sessions is the most effective way to improve comprehension.'],
-        ans: 'C', exp: 'The passage states the handwriting advantage appeared when participants "transcribed lectures verbatim." When laptop users took selective notes, the performance gap was "substantially reduced." The effect depends on strategy, not medium. Answer: <strong>C</strong>.' },
-      { id: 'C2Q2', stem: '2. What does the author suggest is a more productive response to the verbatim-transcription <span class="kw">behavioral problem</span>?',
-        opts: ['A|Requiring all participants to submit handwritten notes after each session for review.', 'B|Training participants in <span class="kw">active summarization strategies</span> rather than banning laptops.', 'C|Reducing the amount of information covered in each training session to make transcription manageable.', 'D|Replacing laptop note-taking with a standardized printed template that limits available space.'],
-        ans: 'B', exp: 'The final paragraph states that "training participants in active summarization strategies may be more effective than restricting the medium." Answer: <strong>B</strong>.' }
+      { id: 'C2Q1',
+        stem: '1. Which of the following best describes the <span class="kw">misconception</span> this passage addresses?',
+        opts: [
+          'A|Children who eat sweets always become difficult to manage at school.',
+          'B|<span class="kw">Sugar</span> directly causes children to become <span class="kw">hyperactive</span>.',
+          'C|Parents are unable to judge their children\'s behavior accurately.',
+          'D|<span class="kw">Controlled studies</span> are not a reliable way to test food-related claims.',
+        ],
+        ans: 'B' },
+      { id: 'C2Q2',
+        stem: '2. According to the passage, what actually explains why adults think <span class="kw">sugar</span> causes <span class="kw">hyperactivity</span>?',
+        opts: [
+          'A|Sugar increases heart rate, which leads to more <span class="kw">active behavior</span>.',
+          'B|Children naturally behave differently after eating sweet food.',
+          'C|The <span class="kw">expectations</span> of adults influence how they observe and judge children\'s <span class="kw">behavior</span>.',
+          'D|The <span class="kw">sugar-free substitute</span> used in the studies contained hidden stimulants.',
+        ],
+        ans: 'C' },
     ]
-  }
+  },
 };
