@@ -327,19 +327,19 @@ body.bold-mode .kw { font-weight: 700; }
   flex: 1;
   overflow: hidden;
   border-right: var(--bw) solid var(--c-border);
-  --fs-body: 26px;
+  --fs-body: clamp(17px, 1.4vw, 26px);
 }
-.split-article .art-title { font-size: 37px; }
+.split-article .art-title { font-size: clamp(24px, 2.1vw, 37px); }
 .split-article .body > p:first-of-type::first-letter { font-size: inherit; float: none; line-height: inherit; padding: 0; }
 .split-questions {
   flex: 1;
   overflow: hidden;
   background: var(--c-surface);
-  --fs-body: 26px;
+  --fs-body: clamp(17px, 1.4vw, 26px);
 }
 .split-article .page,
 .split-questions .page {
   max-width: none;
-  padding: 32px 48px 32px;
+  padding: clamp(16px, 2vw, 32px) clamp(24px, 3vw, 48px);
   margin: 0;
 }
