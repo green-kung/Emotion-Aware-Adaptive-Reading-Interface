@@ -111,9 +111,6 @@ export default function App() {
     });
     supabase.from('responses').insert({
       group_id: curGroup,
-      variant,
-      trial: curTrial + 1,
-      passage: passage.label,
       question: qid,
       response: letter,
       correct_answer: correctAnswer,
