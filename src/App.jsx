@@ -95,15 +95,12 @@ export default function App() {
   function handleAnswer(qid, letter, correct) {
     const start = questionStartsRef.current[qid];
     const elapsedSec = start ? Number(((Date.now() - start) / 1000).toFixed(1)) : null;
-    const seq = SESSIONS[curGroup];
-    const passageId = seq[curTrial];
+    const correctAnswer = passage.q.find(q => q.id === qid)?.ans ?? null;
     const row = {
       group: curGroup,
-      variant,
-      trial: curTrial + 1,
-      passage: passageId,
       question: qid,
       response: letter,
+      correct_answer: correctAnswer,
       correct,
       elapsed: elapsedSec,
       time: nowTaipei(),
@@ -114,11 +111,9 @@ export default function App() {
     });
     supabase.from('responses').insert({
       group_id: curGroup,
-      variant,
-      trial: curTrial + 1,
-      passage: passageId,
       question: qid,
       response: letter,
+      correct_answer: correctAnswer,
       correct,
       elapsed_sec: elapsedSec,
       responded_at: nowTaipei(),
