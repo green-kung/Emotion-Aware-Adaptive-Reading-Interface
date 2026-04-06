@@ -123,6 +123,11 @@ export default function App() {
   }
 
   function nextTrial() {
+    setPhase('between');
+    scrollTop();
+  }
+
+  function confirmNext() {
     const next = curTrial + 1;
     setCurTrial(next);
     setPhase(isVariantB ? 'q' : 'read');
@@ -193,6 +198,15 @@ export default function App() {
                         onFinish={finishSession}
                       />
                     )
+                  )}
+
+                  {phase === 'between' && (
+                    <div className="complete-screen">
+                      <button className="trial-next-btn" onClick={confirmNext}>
+                        Next
+                        <svg viewBox="0 0 14 14"><path d="M3 7h8M7 3l4 4-4 4" /></svg>
+                      </button>
+                    </div>
                   )}
 
                   {phase === 'done' && (
